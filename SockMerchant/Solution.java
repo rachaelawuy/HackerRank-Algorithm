@@ -12,16 +12,18 @@ public class Solution {
 
     // Complete the sockMerchant function below.
     static int sockMerchant(int n, int[] ar) {
-        int answer=0;
         Arrays.sort(ar);
-        for (int i=0; i<n-1; i++){
-            if (ar[i]==ar[i+1]){
-                answer+=1;
-                i++;
+        int count=0;
+        for (int i=0; i< ar.length-1; i++){
+            if (ar[i]==ar[i+1]) {
+                count+=1;
+                i+=1;
             }
         }
-        return answer;
+        return count;
     }
+
+
 
     private static final Scanner scanner = new Scanner(System.in);
 
