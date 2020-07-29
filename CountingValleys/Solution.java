@@ -12,24 +12,13 @@ public class Solution {
 
     // Complete the countingValleys function below.
     static int countingValleys(int n, String s) {
-        int level=0, count=0;
-        boolean down=false;
-        for(int i = 0;  i < n ; i++) { 
-            char c = s.charAt(i);
-            if (c=='D'){
-                level-=1;
-                if (level<0){
-                    if (down==false) {
-                        down=true;
-                        count++;
-                    }
-                }
-            } else {
-                level+=1;
-                if (level>=0)down=false;
-            }
+        int valley=0, lvl =0;
+        for (char c : s.toCharArray()){
+            if (c == 'U') lvl+=1;
+            if (c == 'D') lvl-=1;
+            if (lvl == 0 && c == 'U') valley+=1;
         }
-        return count;
+        return valley;
     }
 
     private static final Scanner scanner = new Scanner(System.in);
@@ -52,4 +41,3 @@ public class Solution {
         scanner.close();
     }
 }
-
